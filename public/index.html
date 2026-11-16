@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Task Manager</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<header class="top">
+  <div class="wrap bar">
+    <strong>Task Manager</strong>
+    <div id="who" hidden><span id="userName"></span><button id="logout" class="ghost">Log out</button></div>
+  </div>
+</header>
+
+<main class="wrap">
+  <!-- Login / Register -->
+  <section id="auth" class="card narrow">
+    <div class="tabs">
+      <button id="tabLogin" class="tab active" type="button">Log in</button>
+      <button id="tabRegister" class="tab" type="button">Register</button>
+    </div>
+    <div id="authForm" class="form">
+      <label id="nameRow" hidden>Name<input id="name" autocomplete="name"></label>
+      <label>Email<input id="email" type="email" autocomplete="email"></label>
+      <label>Password<input id="password" type="password" autocomplete="current-password"></label>
+      <button id="authBtn" type="button">Log in</button>
+      <p id="authMsg" class="msg" role="alert"></p>
+    </div>
+  </section>
+
+  <!-- Tasks -->
+  <section id="app" hidden>
+    <div class="card">
+      <h2 id="formTitle">Add a task</h2>
+      <div class="form grid">
+        <label class="full">Title<input id="title" maxlength="120"></label>
+        <label class="full">Description<textarea id="description" maxlength="1000"></textarea></label>
+        <label>Status
+          <select id="status"><option value="todo">To do</option><option value="in-progress">In progress</option><option value="done">Done</option></select>
+        </label>
+        <label>Priority
+          <select id="priority"><option value="low">Low</option><option value="medium" selected>Medium</option><option value="high">High</option></select>
+        </label>
+        <label>Due date<input id="dueDate" type="date"></label>
+        <div class="actions full">
+          <button id="saveBtn" type="button">Add task</button>
+          <button id="cancelBtn" type="button" class="ghost" hidden>Cancel</button>
+        </div>
+        <p id="taskMsg" class="msg full" role="alert"></p>
+      </div>
+    </div>
+
+    <div class="filters" id="filters">
+      <button data-f="all" class="chip active">All</button>
+      <button data-f="todo" class="chip">To do</button>
+      <button data-f="in-progress" class="chip">In progress</button>
+      <button data-f="done" class="chip">Done</button>
+    </div>
+    <p id="count" class="muted"></p>
+    <ul id="list" class="list"></ul>
+  </section>
+</main>
+<script src="app.js"></script>
+</body>
+</html>
